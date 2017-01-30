@@ -98,7 +98,6 @@ body {
     margin-left: 30px;
 }
 
-
 /* Listitems */
 
 .state{
@@ -117,4 +116,9 @@ li > a > div > div.state{
 
 .poll-progress{
     margin:0;
+}
+
+.pollfilter{
+    width: 32%;
+    display: inline !important;
 }

@@ -9,7 +9,9 @@
             return {
                 restrict: 'E',
                 replace: true,
+                controller: 'pollCtrl',
                 scope: {
+                    scope: '=user'
                 },
                 templateUrl: 'app/directives/header/header.html'
             };

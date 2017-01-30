@@ -1,9 +1,5 @@
 +function(angular) {
   var app = angular.module('poll.app.modal', ['ui.bootstrap']);
-
-  app.controller('poll.app', ['$scope', '$uibModal', function($scope, $uibModal) {
-
-  }]);
   
   app.controller('datepickerCtrl', ['$scope', '$rootScope', '$uibModalInstance', '$log', 
   function($scope, $rootScope, $uibModalInstance, $log) {

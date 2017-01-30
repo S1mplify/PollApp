@@ -15,7 +15,7 @@
             if (user && user.name && user.id) {
               try {
                 var name = user.name.replace(' ', '%20');
-                $scope.url = api.ix.UserUtils.buildUserImageUrl(parseInt(user.id), name);
+                $scope.url = $scope.getUserImageUrl(parseInt(user.id), name);
               } catch (ex) {
                 console.error(ex);
               }

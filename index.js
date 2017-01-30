@@ -11,10 +11,11 @@
   poll.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {templateUrl: 'app/directives/login.html', reloadOnSearch: false})
+      .when('/pass', {templateUrl: 'app/directives/requestPassword.html', reloadOnSearch: false})
       .when('/main', {templateUrl: 'app/directives/board.html', reloadOnSearch: false})
-      .when('/profile', {templateUrl: 'app/directives/board.html', reloadOnSearch: false})
-      .when('/help', {templateUrl: 'app/directives/board.html', reloadOnSearch: false})
-      .when('/settings', {templateUrl: 'app/directives/board.html', reloadOnSearch: false})
+      .when('/profile', {templateUrl: 'app/directives/profile.html', reloadOnSearch: false})
+      .when('/help', {templateUrl: 'app/directives/help.html', reloadOnSearch: false})
+      .when('/settings', {templateUrl: 'app/directives/settings.html', reloadOnSearch: false})
       .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(false);
   }]);
@@ -48,6 +49,19 @@
       $scope.loginInfo = "Sie wurden registriert!";
     };
 
+    $scope.loginBack = function () {
+      $location.path( "/" );
+    };
+
+    $scope.requestPassword = function () {
+      /*session ok?*/
+      if(true){
+        $location.path( "/pass" );
+      }else{
+        $location.path( "/" );
+      }
+    };
+
     $scope.dashboard = function () {
       /*session ok?*/
       if(true){
@@ -59,7 +73,7 @@
 
     $scope.settings = function () {
       if(true){
-        $location.path( "/main" );
+        $location.path( "/settings" );
       }else{
         $location.path( "/" );
       }
@@ -67,7 +81,7 @@
 
     $scope.help = function () {
       if(true){
-        $location.path( "/main" );
+        $location.path( "/help" );
       }else{
         $location.path( "/" );
       }
@@ -75,12 +89,11 @@
 
     $scope.profile = function () {
       if(true){
-        $location.path( "/main" );
+        $location.path( "/profile" );
       }else{
         $location.path( "/" );
       }
     };
-
 
     $scope.openModal = function() {
       var modalInstance = $uibModal.open({
@@ -151,6 +164,30 @@
       }
     ];
 
+    $scope.getPieChart = function (total, voted) {
+      $scope.data = {
+          labels: [
+              "Red",
+              "Blue",
+              "Yellow"
+          ],
+          datasets: [
+              {
+                  data: [300, 50, 100],
+                  backgroundColor: [
+                      "#FF6384",
+                      "#36A2EB"
+                  ],
+                  hoverBackgroundColor: [
+                      "#FF6384",
+                      "#36A2EB"
+                  ]
+              }]
+      };
+    };
+
+
+
     $scope.getProcess = function (total, voted) {
       if ( voted == 0 || total == 0) {
         return 0;
@@ -161,66 +198,6 @@
     $scope.showData = function (data) {
 
     };
-
-
-
-
-
     $scope.data= ["one", "two", "three"];
-
-    $scope.today = function() {
-      $scope.dt = new Date();
-    };
-    $scope.today();
-
-    $scope.inlineOptions = {
-    customClass: getDayClass,
-      minDate: new Date(),
-      showWeeks: true
-    };
-
-    $scope.dateOptions = {
-      dateDisabled: disabled,
-      formatYear: 'yy',
-      maxDate: new Date(2020, 5, 22),
-      minDate: new Date(),
-      startingDay: 1
-    };
-
-    function disabled(data) {
-    }
-
-    $scope.open = function() {
-      $scope.popup.opened = true;
-    };
-
-    $scope.setDate = function(year, month, day) {
-      $scope.dt = new Date(year, month, day);
-    };
-
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[2];
-    $scope.altInputFormats = ['M!/d!/yyyy'];
-
-    $scope.popup = {
-        opened: false
-    };
-
-    function getDayClass(data) {
-      var date = data.date,
-          mode = data.mode;
-      if (mode === 'day') {
-        var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-        for (var i = 0; i < $scope.events.length; i++) {
-          var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
-          if (dayToCheck === currentDay) {
-              return $scope.events[i].status;
-          }
-        }
-      }
-      return '';
-    }
   }]);
 }());

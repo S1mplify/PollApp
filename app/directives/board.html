@@ -4,7 +4,11 @@
   <div class="row">
     <div class="sidebar">
       <ul class="nav nav-sidebar">
-        <li class="active"><a  href="#">Neu</a><a href="#">Alt</a><a href="#">Eigene</a></li>
+        <li class="active">
+          <input type="button" value="Neu" class="btn pollfilter"/>
+          <input type="button" value="Alt" class="btn pollfilter"/>
+          <input type="button" value="Eigene" class="btn pollfilter"/>
+        </li>
         <li ng-repeat="data in demoData">
           <a ng-click="showData()">
             <div>
@@ -18,15 +22,15 @@
     </div>
     <div class="main"  data-spy="scroll" data-target="#toc" >
       <h1 class="page-header" id="overview">Dashboard</h1>
-
       <div class="row placeholders">
         <div class="placeholder">
-          <h4>Label</h4>
-          <span class="text-muted">Info</span>
+          <h4 ng-bind="demoData[0].label">Label</h4>
+          <span class="text-muted" ng-bind="demoData[0].desc">Info</span>
         </div>
       </div>
       <div>
-        <button ng-click="openModal()">Neue Umfrage</button>
+        <button class="btn" ng-click="openModal()">Neue Umfrage</button>
+        <button class="btn" ng-click="openModal(demoData[i])">Umfrage bearbeiten</button>
       </div>
     </div>
   </div>
