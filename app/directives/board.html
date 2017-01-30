@@ -1,0 +1,33 @@
+<header></header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><a  href="#">Neu</a><a href="#">Alt</a><a href="#">Eigene</a></li>
+        <li ng-repeat="data in demoData">
+          <a ng-click="showData()">
+            <div>
+              <div class="state"></div>
+              <span ng-bind="data.label"></span>
+              <uib-progressbar class="poll-progress" animate="false" value="getProcess(data.totalParticipants, data.votedParticipants)" type="success"></uib-progressbar>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="main"  data-spy="scroll" data-target="#toc" >
+      <h1 class="page-header" id="overview">Dashboard</h1>
+
+      <div class="row placeholders">
+        <div class="placeholder">
+          <h4>Label</h4>
+          <span class="text-muted">Info</span>
+        </div>
+      </div>
+      <div>
+        <button ng-click="openModal()">Neue Umfrage</button>
+      </div>
+    </div>
+  </div>
+</div>

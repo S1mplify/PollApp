@@ -1,0 +1,48 @@
+
+<i ng-click="cancel()" class="glyphicon glyphicon-remove modal-close"></i>
+<div class="modal-header">
+  <h3 class="modal-title">Test modal</h3>
+</div>
+
+<div class="modal-body">
+  <div class="row">
+    <div class="cellrow">
+    <p class="poll-text input-group">
+      <label for="startdate">Start date</label>
+      <p class="input-group">
+      <input type="text" class="form-control" ng-change="adjustEndDate()" 
+      uib-datepicker-popup ng-model="startDate" is-open="startOpened" 
+      ng-required="true" uib-datepicker-options="dateOptions" 
+      close-text="Stäng" current-text="Idag" clear-text="Rensa" 
+      name="startdate" ng-click="toggleStartCalendar($event)"/>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" 
+        ng-click="toggleStartCalendar($event)">
+          <i class="glyphicon glyphicon-calendar"></i>
+        </button>
+      </span>
+    </p>
+    </div>
+    <div class="cellrow">
+      <p class="poll-text input-group">
+        <label for="enddate">End date</label>
+        <p class="input-group">
+        <input type="text" class="form-control" ng-change="adjustStartDate()" 
+        uib-datepicker-popup ng-model="endDate" is-open="endOpened" 
+        ng-required="true" uib-datepicker-options="dateOptions" 
+        close-text="Stäng" current-text="Idag" clear-text="Rensa" name="enddate" 
+        ng-click="toggleEndCalendar($event)"/>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default"  
+          ng-click="toggleEndCalendar($event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="pollmodal-footer">
+  <button class="btn" ng-click="save()">Anlegen</button>
+  <button class="btn" ng-click="cancel()">Abbrechen</button>
+</div>

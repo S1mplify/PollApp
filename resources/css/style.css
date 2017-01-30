@@ -1,0 +1,177 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+/* LOGIN SCREEN */
+
+body {
+  background: #eee;
+  color: #700;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading */
+.heading {
+  padding: 50px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.heading span .fa {
+  color: #d33;
+}
+.heading span a {
+  color: #d33;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Login-Page */
+.login-form {
+  position: relative;
+  background: #fff;
+  max-width: 340px;
+  width: 100%;
+  border-top: 5px solid #d33;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+.login-form .form {
+  display: none;
+  padding: 40px;
+}
+.login-form .form:nth-child(2) {
+  display: block;
+}
+.login-form h2 {
+  margin: 0 0 20px;
+  color: #d33;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+.login-form span {
+  margin: 0 0 20px;
+  color: #d33;
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+  font-weight: 400;
+  display: inherit;
+}
+.login-form input {
+  outline: none;
+  display: block;
+  width: 100%;
+  border: 1px solid #eee;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-wieght: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.login-form input:focus {
+  border: 1px solid #d33;
+  color: #333;
+}
+.login-form button {
+  cursor: pointer;
+  background: #d33;
+  width: 100%;
+  border: 0;
+  padding: 10px 15px;
+  color: #fff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.login-form button:hover {
+  background: #d33;
+}
+.login-form .cta {
+  background: #ccc;
+  width: 100%;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 11px;
+  text-align: center;
+}
+.login-form .cta a {
+  color: #333;
+  text-decoration: none;
+}
+
+.toggle{
+  cursor: pointer;
+}
+
+
+
+
+/* Datepicker */
+
+.datepick{
+  width: 140px;
+}
+
+
+
+
+/* Modal Styles */
+
+.modal-dialog {
+  margin: 20% auto;
+}
+
+.modal-content{
+  border: 5px solid #27ae60;
+  border-radius: 0;
+  padding: 1em;
+}
+
+.modal-header {
+  padding: 2px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cellrow {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 0;
+}
+
+.poll-text {
+  margin: 8px 0 -6px 0;
+}
+
+.pollmodal-footer {
+  padding: 10px 0 3px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+
+.modal-close {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  right: -2px;
+  background: #27ae60;
+  width: 30px;
+  height: 30px;
+  margin: -5px 0 0;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}

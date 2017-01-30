@@ -1,0 +1,26 @@
+
+<div class="heading">
+  <h1>Poll-App Login</h1>
+  {{loginInfo}}
+</div>
+<div class="module login-form">
+  <div class="form">
+    <h2>Account einloggen</h2>
+    <input type="text" placeholder="Benutzername"/>
+    <input type="password" placeholder="Passwort"/>
+    <button ng-click="login()">Login</button>
+    <div class="toggle" ng-click="toggle()"><span>Erstelle einen Account</span>
+    </div>
+  </div>
+  <div class="form">
+    <h2>Accounr erstellen</h2>
+    <input type="text" placeholder="Benutzername"/>
+    <input type="password" placeholder="Passwort"/>
+    <input type="email" placeholder="Email Adresse"/>
+    <input type="tel" placeholder="Telefonnummer"/>
+    <button ng-click="register()">Register</button>
+    <span class="toggle" ng-click="toggle()">Zurück zum Loginscreen</span>
+  </div>
+  <div class="cta"><a>Passwort vergessen?</a></div>
+</div>
+<script src="app/directives/login/login.js"></script>
