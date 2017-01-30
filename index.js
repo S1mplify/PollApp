@@ -53,6 +53,11 @@
       $location.path( "/" );
     };
 
+    $scope.logout = function () {
+      /*destroy actual Login*/
+      $location.path( "/" );
+    };
+
     $scope.requestPassword = function () {
       /*session ok?*/
       if(true){
@@ -129,7 +134,7 @@
         ownerId: 1,
         state: "active",
         desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-        type: 'poll',
+        type: "poll",
         totalParticipants: 20,
         votedParticipants: 17,
         topics: [
@@ -148,7 +153,7 @@
         ownerId: 1,
         state: "active",
         desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-        type: 'doodle',
+        type: "doodle",
         totalParticipants: 22,
         votedParticipants: 16,
         topics: [
@@ -164,6 +169,7 @@
       }
     ];
 
+/*
     $scope.getPieChart = function (total, voted) {
       $scope.data = {
           labels: [
@@ -185,8 +191,7 @@
               }]
       };
     };
-
-
+*/
 
     $scope.getProcess = function (total, voted) {
       if ( voted == 0 || total == 0) {

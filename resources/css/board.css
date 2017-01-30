@@ -122,3 +122,7 @@ li > a > div > div.state{
     width: 32%;
     display: inline !important;
 }
+
+.poll-items{
+    cursor: pointer;
+}

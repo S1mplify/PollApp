@@ -7,45 +7,48 @@
 <div class="modal-body">
   <div class="row">
     <div class="cellrow">
-      <p class="poll-text input-group">
+      <p class="pollrow">
         <label class="label-desc">Poll Name</label>
-        <input type="text"/>
+        <input class="form-control modal-input" type="text" ng-modal="demoData[0].label"/>
       </p>
-      <p class="poll-text input-group">
+      <p class="pollrow">
         <label class="label-desc">Poll Beschreibung</label>
-        <input type="textarea"/>
+        <textarea class="form-control modal-input" rows="3" placeholder="Enter text here..."></textarea>
       </p>
-      <p class="poll-text input-group">
+      <p class="pollrow">
         <label class="label-desc">Poll Type</label>
-        <select>
-          <option>doodle</option>
-          <option>poll</option>
+        <select class="form-control" >
+          <option ng-repeat="type in types" ng-modal="type">{{type}}</option>
         </select>
       </p>
     </div>
-    <div class="cellrow" ng-hide="true">
-      <p class="poll-text input-group">
-        <label class="label-desc">Topic</label>
-        <input type="text"/>
-        <label>Start date</label>
-        <p class="input-group">
-        <input type="text" class="form-control" ng-change="adjustEndDate()"
-        uib-datepicker-popup ng-model="startDate" is-open="startOpened"
-        ng-required="true" uib-datepicker-options="dateOptions"
-        close-text="Abbrechen" current-text="Heute" clear-text="Löschen"
-        name="startdate" ng-click="toggleStartCalendar($event)"/>
+    <div class="cellrow" ng-hide="false">
+      <label class="label-desc">Datum Vorschläge</label>
+      <div class="pollrow input-group" ng-repeat="d in date track by $index">
+        <div class="input-group">
+        <input type="text" class="form-control" ng-change="adjustEndDate()" uib-datepicker-popup ng-model="startDate" is-open="startOpened"
+        ng-required="true" uib-datepicker-options="dateOptions" close-text="Abbrechen" current-text="Heute" clear-text="Löschen"
+        name="startdate" ng-click="openCalendar($event)" value="d"/>
+
         <span class="input-group-btn">
           <button type="button" class="btn btn-default"
-          ng-click="toggleStartCalendar($event)">
+          ng-click="openCalendar($event)">
             <i class="glyphicon glyphicon-calendar"></i>
           </button>
         </span>
-      </p>
+        </div>
+      </div>
+      <br>
+      <button class="btn" ng-click="addNewAnswerDate()">Zeile Hinzufügen</button>
     </div>
-  </div>
-  <br>
-  <div class="cellrow">
-    <button class="btn">Zeile Hinzufügen</button>
+    <div ng-if="answer" class="cellrow">
+      <label class="label-desc">Antwort</label>
+      <div class="pollrow" ng-repeat="ans in answer track by $index">
+        <input class="form-control modal-input" type="text" ng-bind="ans"/>
+      </div>
+      <br>
+      <button class="btn" ng-click="addNewAnswerPoll()">Zeile Hinzufügen</button>
+    </div>
   </div>
 </div>
 <div class="pollmodal-footer">

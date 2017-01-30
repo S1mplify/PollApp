@@ -12,18 +12,23 @@
       alert($scope.startDate + " " + $scope.endDate);
     };
 
-    $scope.toggleStartCalendar = function($event) {
+    $scope.openCalendar = function($event) {
       $event.preventDefault();
       $event.stopPropagation();
 
       $scope.startOpened = !$scope.startOpened;
     };
 
-    $scope.toggleEndCalendar = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
+    $scope.types = ["poll", "doodle"];
+    $scope.answer = [""];
+    $scope.date = [""];
 
-      $scope.endOpened = !$scope.endOpened;
+    $scope.addNewAnswerPoll = function () {
+      $scope.answer.push("")
+    };
+
+    $scope.addNewAnswerDate = function () {
+      $scope.date.push("")
     };
 
     $scope.cancel = function () {
@@ -33,13 +38,6 @@
     $scope.dateOptions = {
       formatYear: 'yy',
       startingDay: 1
-    };
-
-    $scope.adjustEndDate =  function() {
-      if ($scope.endDate < $scope.startDate) {
-        $log("Adjusting end date to " + $scope.startDate);
-        $scope.endDate = $scope.startDate;
-      }
     };
 
     $scope.adjustStartDate = function() {

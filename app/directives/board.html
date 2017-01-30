@@ -10,11 +10,12 @@
           <input type="button" value="Eigene" class="btn pollfilter"/>
         </li>
         <li ng-repeat="data in demoData">
-          <a ng-click="showData()">
+          <a class="poll-items" ng-click="showData()">
             <div>
               <div class="state"></div>
               <span ng-bind="data.label"></span>
               <uib-progressbar class="poll-progress" animate="false" value="getProcess(data.totalParticipants, data.votedParticipants)" type="success"></uib-progressbar>
+              <div></div>
             </div>
           </a>
         </li>
@@ -24,8 +25,8 @@
       <h1 class="page-header" id="overview">Dashboard</h1>
       <div class="row placeholders">
         <div class="placeholder">
-          <h4 ng-bind="demoData[0].label">Label</h4>
-          <span class="text-muted" ng-bind="demoData[0].desc">Info</span>
+          <h4 ng-bind="demoData[0].label">Titel</h4>
+          <span class="text-muted" ng-bind="demoData[0].desc">Beschreibung</span>
         </div>
       </div>
       <div>

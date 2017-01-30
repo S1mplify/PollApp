@@ -121,7 +121,7 @@ body {
 /* Modal Styles */
 
 .modal-dialog {
-  margin: 20% auto;
+  margin: 10% auto;
 }
 
 .modal-content{
@@ -139,7 +139,7 @@ body {
   position: relative;
   min-height: 1px;
   padding-right: 15px;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 .btn {
@@ -151,7 +151,7 @@ body {
   border-radius: 0;
 }
 
-.poll-text {
+.pollrow {
   margin: 8px 0 -6px 0;
 }
 
