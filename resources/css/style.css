@@ -183,3 +183,7 @@ body {
 .date{
   margin-top: 3px !important;
 }
+
+.settings-input{
+  max-width: 90px;
+}

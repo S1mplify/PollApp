@@ -143,6 +143,16 @@
             label: "Frankfurt",
             votes: 3,
             isVoted: false
+          },
+          {
+              label: "Berlin",
+              votes: 2,
+              isVoted: false
+          },
+          {
+              label: "München",
+              votes: 6,
+              isVoted: true
           }
         ]
       },
@@ -150,7 +160,7 @@
         label: "Was ist euer Lieblingsessen?",
         ownerId: 2,
         state: "active",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+        desc: "Bacon ipsum dolor sit amet doner meatball jowl short ribs, chicken prosciutto salami frankfurter. Pig drumstick turducken short ribs, brisket meatloaf ham hock shankle andouille corned beef strip steak.",
         type: "poll",
         totalParticipants: 20,
         votedParticipants: 17,
@@ -171,7 +181,7 @@
         label: "Treffpunkt für Lasertack",
         ownerId: 1,
         state: "active",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+        desc: "Christian brothers jameson long island iced tea caju amigo glen elgin caipiroska dark and stormy. Lemon drop, lime rickey batida seagrams tinto de verano.",
         type: "date",
         totalParticipants: 22,
         votedParticipants: 16,
