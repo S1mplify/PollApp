@@ -10,10 +10,10 @@
           <input type="button" value="Eigene" class="btn pollfilter"/>
         </li>
         <li  ng-repeat="data in demoData track by $index">
-          <a class="poll-items" >
+          <a class="poll-items" ng-click="updateData($index)" >
             <div>
               <div class="state"></div>
-              <span ng-click="showData(data)" ng-bind="data.label"></span>
+              <span ng-bind="data.label"></span>
               <uib-progressbar class="poll-progress" animate="false" value="getProcess(data.totalParticipants, data.votedParticipants)" type="success"></uib-progressbar>
             </div>
           </a>
@@ -24,18 +24,22 @@
       <h1 class="page-header" id="overview">Dashboard</h1>
       <div class="row placeholders">
         <div class="placeholder">
-          <h4 ng-bind="demoData[idx].label"></h4>
-          <span class="text-muted" ng-bind="demoData[idx].desc"></span>
+          <h4 class="heading" ng-bind="demoData[idx].label"></h4>
+          <span class="topic-desc text-muted" ng-bind="demoData[idx].desc"></span>
           <div class="poll-list" ng-repeat="topic in demoData[idx].topics">
-            <i class="glyphicon glyphicon-check" style="font-size: 40px"></i>
-            <h2 ng-bind="topic.label"></h2>
-            <h2>  -  {{topic.votes}} Votes</h2>
+            <div class="poll-item checkItem">
+              <i ng-hide="topic.isVoted" class="topic-ico glyphicon glyphicon-unchecked" ng-click="vote(topic)"></i>
+              <i ng-show="topic.isVoted" class="topic-ico glyphicon glyphicon-check" ng-click="unVote(topic)"></i>
+            </div>
+            <span class="topic-lbl" ng-bind="topic.label"></span>
+            <div class="poll-item topic-vote actualVotes" ng-show="seeVotes"><span class="topic">  -  {{topic.votes}} Votes</span></div>
           </div>
         </div>
       </div>
       <div>
         <button class="btn" ng-click="openModal()">Neue Umfrage</button>
         <button class="btn" ng-click="openModal(demoData[i])">Umfrage bearbeiten</button>
+        <button class="btn" ng-click="seeVotes = !seeVotes">Ergenis anschauen</button>
       </div>
     </div>
   </div>

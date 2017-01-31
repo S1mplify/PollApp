@@ -17,7 +17,7 @@
       </p>
       <p class="pollrow">
         <label class="label-desc">Poll Type:</label>
-        <select ng-if="poll.types" ng-options="typ for type in poll.types" ng-change="changeType(typ)" class="form-control" ng-model="typ"></select>
+        <select ng-if="poll.types" ng-options="typ in type for type in poll.types" ng-change="changeType(typ)" class="form-control" ng-model="typ"></select>
       </p>
     </div>
     <div ng-if="active != undefined" class="cellrow" ng-hide="active">

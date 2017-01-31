@@ -26,6 +26,7 @@
     $scope.loginInfo = "";
     $scope.idx = 0;
     $scope.ownerId = 1; //Testzwecke
+    $scope.seeVotes = false;
 
     $scope.toggle = function () {
       $('.form').animate({
@@ -135,11 +136,13 @@
         topics: [
           {
             label: "Stuttgart",
-            votes: 4
+            votes: 4,
+            isVoted: false
           },
           {
             label: "Frankfurt",
-            votes: 3
+            votes: 3,
+            isVoted: false
           }
         ]
       },
@@ -154,11 +157,13 @@
         topics: [
           {
             label: "Spaghetti",
-            votes: 12
+            votes: 12,
+            isVoted: false
           },
           {
             label: "Maultaschen",
-            votes: 5
+            votes: 5,
+            isVoted: false
           }
         ]
       },
@@ -173,21 +178,23 @@
         topics: [
           {
             label: "2017/01/12",
-            votes: 9
+            votes: 9,
+            isVoted: false
           },
           {
             label: "2017/01/13",
-            votes: 7
+            votes: 7,
+            isVoted: false
           }
         ]
       }
     ];
 
     $scope.getEntry = function () {
-        
+
     };
 
-    $scope.showData = function(idx){
+    $scope.updateData = function(idx){
       $scope.idx = idx;
     };
 
@@ -199,28 +206,8 @@
     };
 
 
-    /*
-      $scope.getPieChart = function (total, voted) {
-        $scope.data = {
-            labels: [
-                "Red",
-                "Blue"
-            ],
-            datasets: [
-                {
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        "#FF6384",
-                        "#36A2EB"
-                    ],
-                    hoverBackgroundColor: [
-                        "#FF6384",
-                        "#36A2EB"
-                    ]
-                }]
-        };
-      };
-    */
+
+
 
     $scope.getProcess = function (total, voted) {
       if ( voted == 0 || total == 0) {
@@ -229,9 +216,49 @@
       return Math.round(voted / total * 100);
     };
 
+    $scope.vote = function (topic) {
+      topic.isVoted = true;
+    };
+
+    $scope.unVote = function (topic) {
+      topic.isVoted = false;
+    };
+
     $scope.showData = function (data) {
 
     };
-    $scope.data= ["one", "two", "three"];
+
+ /*$scope.getPieChart = function (total, voted) {
+      var colors = [
+          "#FF0", "#F0F",
+          "#0FF", "#F00",
+          "#00F", "#0F0",
+          "#F6F", "#AF2",
+          "#F51", "#3BF",
+          "#93F", "#1F8",
+          "#FB1", "#E78",
+          "#4Fb", "#B2F",
+          "#CF5", "#F68"
+      ];
+
+      $scope.data = {
+        labels: [
+          "Red",
+          "Blue"
+        ],
+        datasets: [
+          {
+            data: [300, 50, 100],
+            backgroundColor: [
+              "#FF6384",
+              "#36A2EB"
+            ],
+            hoverBackgroundColor: [
+              "#FF6384",
+              "#36A2EB"
+            ]
+          }]
+      };
+    };*/
   }]);
 }());

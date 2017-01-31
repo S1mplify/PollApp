@@ -146,3 +146,27 @@ li > a > div > div.state{
     /* z-index: 900000000; */
     top: -3px;
 }
+
+.navbar-inverse {
+    background-image: linear-gradient(to bottom,#333 0, #333 100%);
+}
+
+.topic-ico, .topic-lbl, .topic-vote, .topic-desc{
+    font-size: 32px;
+}
+
+.topic-ico{
+    margin-right: 10%;
+}
+
+.topic-vote{
+    padding-left: 10%;
+}
+
+.poll-item{
+    display: inline;
+}
+
+.heading{
+    font-size: 40px;
+}
