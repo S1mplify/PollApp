@@ -9,13 +9,12 @@
           <input type="button" value="Alt" class="btn pollfilter"/>
           <input type="button" value="Eigene" class="btn pollfilter"/>
         </li>
-        <li ng-repeat="data in demoData">
-          <a class="poll-items" ng-click="showData()">
+        <li  ng-repeat="data in demoData track by $index">
+          <a class="poll-items" >
             <div>
               <div class="state"></div>
-              <span ng-bind="data.label"></span>
+              <span ng-click="showData($index)" ng-bind="data.label"></span>
               <uib-progressbar class="poll-progress" animate="false" value="getProcess(data.totalParticipants, data.votedParticipants)" type="success"></uib-progressbar>
-              <div></div>
             </div>
           </a>
         </li>
@@ -25,8 +24,13 @@
       <h1 class="page-header" id="overview">Dashboard</h1>
       <div class="row placeholders">
         <div class="placeholder">
-          <h4 ng-bind="demoData[0].label">Titel</h4>
-          <span class="text-muted" ng-bind="demoData[0].desc">Beschreibung</span>
+          <h4 ng-bind="demoData[idx].label"></h4>
+          <span class="text-muted" ng-bind="demoData[idx].desc"></span>
+          <div class="poll-list" ng-repeat="topic in demoData[idx].topics">
+            <i class="glyphicon glyphicon-check" style="font-size: 40px"></i>
+            <h2 ng-bind="topic.label"></h2>
+            <h2>  -  {{topic.votes}} Votes</h2>
+          </div>
         </div>
       </div>
       <div>

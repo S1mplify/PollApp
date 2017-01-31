@@ -8,43 +8,39 @@
   <div class="row">
     <div class="cellrow">
       <p class="pollrow">
-        <label class="label-desc">Poll Name</label>
-        <input class="form-control modal-input" type="text" ng-modal="demoData[0].label"/>
+        <label class="label-desc">Poll Name:</label>
+        <input minlength="3" required class="form-control modal-input" type="text" ng-model="poll.label"/>
       </p>
       <p class="pollrow">
-        <label class="label-desc">Poll Beschreibung</label>
-        <textarea class="form-control modal-input" rows="3" placeholder="Enter text here..."></textarea>
+        <label class="label-desc">Poll Beschreibung:</label>
+        <textarea class="form-control modal-input" rows="3" placeholder="Enter text here..." ng-model="poll.desc"></textarea>
       </p>
       <p class="pollrow">
-        <label class="label-desc">Poll Type</label>
-        <select class="form-control" >
-          <option ng-repeat="type in types" ng-modal="type">{{type}}</option>
-        </select>
+        <label class="label-desc">Poll Type:</label>
+        <select ng-if="poll.types" ng-options="typ for type in poll.types" ng-change="changeType(typ)" class="form-control" ng-model="typ"></select>
       </p>
     </div>
-    <div class="cellrow" ng-hide="false">
-      <label class="label-desc">Datum Vorschläge</label>
-      <div class="pollrow input-group" ng-repeat="d in date track by $index">
+    <div class="cellrow" ng-hide="active">
+      <p class="pollrow">
+        <label class="label-desc">Datum Vorschläge</label>
+      </p>
+      <div class="input-group" ng-repeat="date in poll.dates">
         <div class="input-group">
-        <input type="text" class="form-control" ng-change="adjustEndDate()" uib-datepicker-popup ng-model="startDate" is-open="startOpened"
-        ng-required="true" uib-datepicker-options="dateOptions" close-text="Abbrechen" current-text="Heute" clear-text="Löschen"
-        name="startdate" ng-click="openCalendar($event)" value="d"/>
-
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-default"
-          ng-click="openCalendar($event)">
-            <i class="glyphicon glyphicon-calendar"></i>
-          </button>
-        </span>
+          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-click="openCalendar($event, date)" ng-model="poll.dates[$index].date" is-open="poll.dates[$index].opened" datepicker-options="dateOptions" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="openCalendar($event, date)"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
         </div>
       </div>
       <br>
       <button class="btn" ng-click="addNewAnswerDate()">Zeile Hinzufügen</button>
     </div>
-    <div ng-if="answer" class="cellrow">
-      <label class="label-desc">Antwort</label>
-      <div class="pollrow" ng-repeat="ans in answer track by $index">
-        <input class="form-control modal-input" type="text" ng-bind="ans"/>
+    <div class="cellrow" ng-show="active">
+      <p class="pollrow">
+        <label class="label-desc">Antwort</label>
+      </p>
+      <div class="pollrow" ng-repeat="answ in poll.answer track by $index">
+        <input minlength="3" required class="form-control modal-input" type="text" ng-model="poll.answer[$index]"/>
       </div>
       <br>
       <button class="btn" ng-click="addNewAnswerPoll()">Zeile Hinzufügen</button>

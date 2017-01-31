@@ -24,6 +24,8 @@
     function ($scope, $location, $uibModal) {
 
     $scope.loginInfo = "";
+    $scope.idx = 0;
+    $scope.ownerId = 1; //Testzwecke
 
     $scope.toggle = function () {
       $('.form').animate({
@@ -131,7 +133,7 @@
       },
       {
         label: "Was ist euer Lieblingsessen?",
-        ownerId: 1,
+        ownerId: 2,
         state: "active",
         desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
         type: "poll",
@@ -153,45 +155,56 @@
         ownerId: 1,
         state: "active",
         desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-        type: "doodle",
+        type: "date",
         totalParticipants: 22,
         votedParticipants: 16,
         topics: [
           {
-            label: "2017/1/12",
+            label: "2017/01/12",
             votes: 9
           },
           {
-            label: "2017/1/13",
+            label: "2017/01/13",
             votes: 7
           }
         ]
       }
     ];
 
-/*
-    $scope.getPieChart = function (total, voted) {
-      $scope.data = {
-          labels: [
-              "Red",
-              "Blue",
-              "Yellow"
-          ],
-          datasets: [
-              {
-                  data: [300, 50, 100],
-                  backgroundColor: [
-                      "#FF6384",
-                      "#36A2EB"
-                  ],
-                  hoverBackgroundColor: [
-                      "#FF6384",
-                      "#36A2EB"
-                  ]
-              }]
-      };
+    $scope.showData = function(idx){
+      $scope.idx = idx;
     };
-*/
+
+    $scope.isActive = false;
+    $scope.isClosed = true;
+    $scope.toggleClass = function() {
+        $scope.isActive = !$scope.isActive;
+        $scope.isClosed = !$scope.isClosed;
+    };
+
+
+    /*
+      $scope.getPieChart = function (total, voted) {
+        $scope.data = {
+            labels: [
+                "Red",
+                "Blue"
+            ],
+            datasets: [
+                {
+                    data: [300, 50, 100],
+                    backgroundColor: [
+                        "#FF6384",
+                        "#36A2EB"
+                    ],
+                    hoverBackgroundColor: [
+                        "#FF6384",
+                        "#36A2EB"
+                    ]
+                }]
+        };
+      };
+    */
 
     $scope.getProcess = function (total, voted) {
       if ( voted == 0 || total == 0) {

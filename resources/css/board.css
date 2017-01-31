@@ -126,3 +126,11 @@ li > a > div > div.state{
 .poll-items{
     cursor: pointer;
 }
+
+.poll-list{
+    margin: 20px;
+}
+
+.poll-list > h2{
+    display: inline;
+}

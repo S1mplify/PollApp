@@ -1,6 +1,4 @@
-/**
- * Created by stgro on 30.01.2017.
- */
+
 (function () {
     'use strict';
 
@@ -11,9 +9,9 @@
                 replace: true,
                 controller: 'pollCtrl',
                 scope: {
-                    scope: '=user'
+                    scope: '='
                 },
                 templateUrl: 'app/directives/header/header.html'
-            };
+            }
         }]);
 }());
