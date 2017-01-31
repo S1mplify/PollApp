@@ -134,3 +134,15 @@ li > a > div > div.state{
 .poll-list > h2{
     display: inline;
 }
+
+.checkbox{
+    background-image:url(../../resources/images/checkbox_ohne.png);
+    height: 36px;
+    width: 36px;
+    /* left: 67px; */
+    position: fixed;
+    display: inline-flex;
+    /* background-color: grey; */
+    /* z-index: 900000000; */
+    top: -3px;
+}

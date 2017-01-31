@@ -69,6 +69,18 @@
       }
     };
 
+    $scope.getPass = function () {
+      /*WENN ES EMAIL IN DER DB gibt Erfolg*/
+      if(true){
+        $scope.loginInfo = "Es wurde eine Email verschickt, dort können sie Ihr Passwort zurücksetzen";
+        $location.path( "/" );
+      }else{
+        $scope.loginInfo = "Es konnte kein Eintrag mit dieser E-Mailadresse gefundern werden! " +
+            "Versuchen sie es nocheinmal.";
+        $location.path( "/pass" );
+      }
+    };
+
     $scope.dashboard = function () {
       /*session ok?*/
       if(true){
@@ -170,6 +182,10 @@
         ]
       }
     ];
+
+    $scope.getEntry = function () {
+        
+    };
 
     $scope.showData = function(idx){
       $scope.idx = idx;

@@ -179,3 +179,7 @@ body {
 .label-desc{
   display: block;
 }
+
+.date{
+  margin-top: 3px !important;
+}

@@ -13,7 +13,7 @@
           <a class="poll-items" >
             <div>
               <div class="state"></div>
-              <span ng-click="showData($index)" ng-bind="data.label"></span>
+              <span ng-click="showData(data)" ng-bind="data.label"></span>
               <uib-progressbar class="poll-progress" animate="false" value="getProcess(data.totalParticipants, data.votedParticipants)" type="success"></uib-progressbar>
             </div>
           </a>

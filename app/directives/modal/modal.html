@@ -20,22 +20,23 @@
         <select ng-if="poll.types" ng-options="typ for type in poll.types" ng-change="changeType(typ)" class="form-control" ng-model="typ"></select>
       </p>
     </div>
-    <div class="cellrow" ng-hide="active">
+    <div ng-if="active != undefined" class="cellrow" ng-hide="active">
       <p class="pollrow">
         <label class="label-desc">Datum Vorschläge</label>
       </p>
       <div class="input-group" ng-repeat="date in poll.dates">
         <div class="input-group">
-          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-click="openCalendar($event, date)" ng-model="poll.dates[$index].date" is-open="poll.dates[$index].opened" datepicker-options="dateOptions" />
+          <input type="text" class="date form-control" datepicker-popup="{{format}}" ng-click="openCalendar($event, date)"
+                 ng-model="poll.dates[$index].date" is-open="poll.dates[$index].opened" datepicker-options="dateOptions" />
           <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="openCalendar($event, date)"><i class="glyphicon glyphicon-calendar"></i></button>
+            <button type="button" class="date btn btn-default" ng-click="openCalendar($event, date)"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
         </div>
       </div>
       <br>
       <button class="btn" ng-click="addNewAnswerDate()">Zeile Hinzufügen</button>
     </div>
-    <div class="cellrow" ng-show="active">
+    <div ng-if="active != undefined" class="cellrow" ng-show="active">
       <p class="pollrow">
         <label class="label-desc">Antwort</label>
       </p>

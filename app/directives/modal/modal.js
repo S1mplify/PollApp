@@ -4,9 +4,10 @@
   app.controller('datepickerCtrl', ['$scope', '$rootScope', '$uibModalInstance', /*'pollProvider',*/
   function($scope, $rootScope, $uibModalInstance/*, pollProvider -> macht Probleme */) {
 
+      //$scope.active = true;
       $scope.poll = {};
       $scope.format = 'dd-MMMM-yyyy';
-      $scope.poll.types = ["Datum", "Allgemein"];
+      $scope.poll.types = ["Allgemein", "Datum"];
       $scope.poll.answer = [""];
       $scope.poll.dates = [{date:'01-05-2001'}, {date:'05-05-2014'}, {date:'10-11-2008'}];
 
