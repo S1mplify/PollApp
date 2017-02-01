@@ -1,4 +1,3 @@
-
 <i ng-click="cancel()" class="glyphicon glyphicon-remove modal-close"></i>
 <div class="modal-header">
   <h3 class="modal-title">Poll erstellen</h3>
@@ -9,7 +8,7 @@
     <div class="cellrow">
       <p class="pollrow">
         <label class="label-desc">Poll Name:</label>
-        <input minlength="3" required class="form-control modal-input" type="text" ng-model="poll.label"/>
+        <input minlength="3" required class="form-control modal-input" type="text" ng-model="poll.label" />
       </p>
       <p class="pollrow">
         <label class="label-desc">Poll Beschreibung:</label>
@@ -17,20 +16,22 @@
       </p>
       <p class="pollrow">
         <label class="label-desc">Poll Type:</label>
-        <select ng-if="poll.types" ng-options="typ for type in poll.types" ng-change="changeType(typ)" class="form-control" ng-model="typ"></select>
+        <select name="pollTypes" id="pollTypes" ng-model="typ" class="form-control" ng-change="changeme()">
+      <option ng-repeat="type in poll.types" value="{{type}}" >{{type}}</option>
+    </select>
       </p>
       <!--<p class="pollrow">
          Mehrfache Antworten zulassen? - Checkbox hinzufügen
       </p>-->
     </div>
-    <div ng-if="active != undefined" class="cellrow" ng-hide="active">
+    <div ng-if="typ == 'Datum'" class="cellrow">
       <p class="pollrow">
         <label class="label-desc">Datum Vorschläge</label>
       </p>
       <div class="input-group" ng-repeat="date in poll.dates">
         <div class="input-group">
-          <input type="text" class="date form-control" datepicker-popup="{{format}}" ng-click="openCalendar($event, date)"
-                 ng-model="poll.dates[$index].date" is-open="poll.dates[$index].opened" datepicker-options="dateOptions" />
+          <input type="text" class="date form-control" datepicker-popup="{{format}}" ng-click="openCalendar($event, date)" ng-model="poll.dates[$index].date"
+            is-open="poll.dates[$index].opened" datepicker-options="dateOptions" />
           <span class="input-group-btn">
             <button type="button" class="date btn btn-default" ng-click="openCalendar($event, date)"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
@@ -39,12 +40,12 @@
       <br>
       <button class="btn" ng-click="addNewAnswerDate()">Zeile Hinzufügen</button>
     </div>
-    <div ng-if="active != undefined" class="cellrow" ng-show="active">
+    <div ng-if="typ == 'Allgemein'" class="cellrow">
       <p class="pollrow">
         <label class="label-desc">Antwort</label>
       </p>
       <div class="pollrow" ng-repeat="answ in poll.answer track by $index">
-        <input minlength="3" required class="form-control modal-input" type="text" ng-model="poll.answer[$index]"/>
+        <input minlength="3" required class="form-control modal-input" type="text" ng-model="poll.answer[$index]" />
       </div>
       <br>
       <button class="btn" ng-click="addNewAnswerPoll()">Zeile Hinzufügen</button>
