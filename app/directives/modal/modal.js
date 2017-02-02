@@ -44,8 +44,8 @@
 
       $scope.changeType = function (typ) {
           $scope.poll.type = typ;
-          $scope.poll.answer = [""];
-          $scope.poll.dates = [{date:'01-05-2001'}, {date:'05-05-2014'}, {date:'10-11-2008'}];
+          $scope.poll.answer = ["", ""];
+          $scope.poll.dates = [{date:''}, {date:''}];
           if(typ == "Allgemein"){
             $scope.active = true;
           } else{

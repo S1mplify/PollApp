@@ -37,8 +37,11 @@
         </div>
       </div>
       <div>
+        <button class="btn" ng-click="giveVote()">Abstimmen</button>
+      </div>
+      <div>
         <button class="btn" ng-click="openModal()">Neue Umfrage</button>
-        <button class="btn" ng-click="openModal(demoData[i])">Umfrage bearbeiten</button>
+        <button class="btn" ng-click="openModalEdit(demoData[idx])">Umfrage bearbeiten</button>
         <button class="btn" ng-click="seeVotes = !seeVotes">Ergenis anschauen</button>
       </div>
     </div>

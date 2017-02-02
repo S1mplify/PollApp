@@ -124,6 +124,16 @@
       });
     };
 
+    $scope.openModalEdit = function(poll) {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: "app/directives/modal/modal.html",
+        controller: 'datepickerCtrl',
+        scope: poll,
+        size: 'md'
+      });
+    };
+
     $scope.demoData = [
       {
         label: "Welcher Treffpunkt?",
