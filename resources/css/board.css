@@ -151,8 +151,17 @@ li > a > div > div.state{
     background-image: linear-gradient(to bottom,#333 0, #333 100%);
 }
 
-.topic-ico, .topic-lbl, .topic-vote, .topic-desc{
+.topic-ico, .topic-lbl, .topic-vote{
     font-size: 32px;
+}
+
+.topic-desc{
+    font-size: 22px;
+    color: #a33;
+}
+
+.topic-head{
+    margin-bottom: 28px !important;
 }
 
 .topic-ico{
@@ -169,4 +178,8 @@ li > a > div > div.state{
 
 .heading{
     font-size: 40px;
+}
+
+.setActive{
+    background-color: #6aebdd;
 }

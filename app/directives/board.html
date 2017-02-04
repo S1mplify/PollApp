@@ -4,13 +4,13 @@
   <div class="row">
     <div class="sidebar">
       <ul class="nav nav-sidebar">
-        <li ng-repeat="btn in buttons">
-          <input type="button" ng-class="btn.state" ng-click="activeFilter()" value="{{btn.label}}" class="btn pollfilter"/>
+        <li class="active">
+          <input ng-repeat="btn in buttons track by $index" type="button" ng-click="activeFilter(btn.state, $index)" ng-class="(btn.state) ? 'setActive' : ''" value="{{btn.label}}" class="btn pollfilter" />
         </li>
         <li  ng-repeat="data in demoData track by $index">
           <a class="poll-items" ng-click="updateData($index)" >
             <div>
-              <div class="state"></div>
+              <div ng-show="state == active" class="state"></div>
               <span ng-bind="data.label"></span>
               <uib-progressbar class="poll-progress" animate="false" value="getProcess(data.totalParticipants, data.votedParticipants)" type="success"></uib-progressbar>
             </div>
@@ -22,14 +22,14 @@
       <h1 class="page-header" id="overview">Umfragen</h1>
       <div class="row placeholders">
         <div class="placeholder">
-          <h4 class="heading" ng-bind="demoData[idx].label"></h4>
+          <h4 class="heading topic-head" ng-bind="demoData[idx].label"></h4>
           <span class="topic-desc text-muted" ng-bind="demoData[idx].desc"></span>
           <div class="poll-list" ng-repeat="topic in demoData[idx].topics">
             <div class="poll-item checkItem">
               <i ng-hide="topic.isVoted" class="topic-ico glyphicon glyphicon-unchecked" ng-click="vote(topic)"></i>
               <i ng-show="topic.isVoted" class="topic-ico glyphicon glyphicon-check" ng-click="unVote(topic)"></i>
             </div>
-            <span class="topic-lbl" ng-bind="topic.label"></span>
+            <span class="topic-lbl" ng-init="topic.label">{{topic.label | date:'dd MMM yyyy'}}</span>
             <div class="poll-item topic-vote actualVotes" ng-show="seeVotes"><span class="topic">  -  {{topic.votes}} Votes</span></div>
           </div>
         </div>

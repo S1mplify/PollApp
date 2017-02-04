@@ -129,7 +129,7 @@ body {
 }
 
 .modal-content{
-  border: 5px solid #27ae60;
+  border: 5px solid #d33;
   border-radius: 0;
   padding: 1em;
 }
@@ -170,7 +170,7 @@ body {
   position: absolute;
   top: 2px;
   right: -2px;
-  background: #27ae60;
+  background: #d33;
   width: 30px;
   height: 30px;
   margin: -5px 0 0;

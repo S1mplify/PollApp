@@ -27,6 +27,8 @@
     $scope.idx = 0;
     $scope.ownerId = 1; //Testzwecke
     $scope.seeVotes = false;
+    $scope.isActive = false;
+    $scope.isClosed = true;
     $scope.buttons = [
       { label: 'Aktive', state: false },
       { label: 'Alt', state: false },
@@ -143,8 +145,12 @@
       });
     };
 
-    $scope.aktiveFilter = function() {
-
+    $scope.activeFilter = function(state, idx) {
+      var i;
+      for(i = 0; $scope.buttons.length > i; i++){
+        $scope.buttons[i].state = false;
+      }
+      $scope.buttons[idx].state = !state;
     };
 
     $scope.demoData = [
@@ -210,12 +216,12 @@
         votedParticipants: 16,
         topics: [
           {
-            label: "2017/01/12",
+            label: new Date("2017-01-12 00:00:00"),
             votes: 9,
             isVoted: false
           },
           {
-            label: "2017/01/13",
+            label: new Date("2017-01-13 00:00:00"),
             votes: 7,
             isVoted: false
           }
@@ -224,30 +230,34 @@
       {
         label: "Schwimmen gehen",
         ownerId: 2,
-        state: "ended",
+        state: "finished",
         desc: "Dark and stormy. Lemon drop, lime rickey batida seagrams tinto de verano.",
         type: "date",
         totalParticipants: 8,
         votedParticipants: 4,
         topics: [
           {
-            label: "2017/01/12",
+            label: new Date("2017-01-12 00:00:00"),
             votes: 3,
             isVoted: false
           },
           {
-            label: "2017/01/13",
+            label: new Date("2017-01-13 00:00:00"),
             votes: 5,
             isVoted: false
           },
           {
-              label: "2017/01/13",
-              votes: 7,
-              isVoted: false
+            label: new Date("2017-01-18 00:00:00"),
+            votes: 7,
+            isVoted: false
           }
         ]
       }
     ];
+
+    $scope.formatDate = function () {
+
+    };
 
     $scope.getEntry = function () {
 
@@ -257,16 +267,10 @@
       $scope.idx = idx;
     };
 
-    $scope.isActive = false;
-    $scope.isClosed = true;
     $scope.toggleClass = function() {
         $scope.isActive = !$scope.isActive;
         $scope.isClosed = !$scope.isClosed;
     };
-
-
-
-
 
     $scope.getProcess = function (total, voted) {
       if ( voted == 0 || total == 0) {
