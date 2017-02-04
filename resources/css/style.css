@@ -1,26 +1,30 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+/*@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);*/
 
 /* LOGIN SCREEN */
 
 body {
   background: #eee;
   color: #700;
-  font-family: 'Oswald', sans-serif;
+  /*font-family: 'Oswald', sans-serif;*/
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Heading */
-.heading {
+.heading-login {
   padding: 50px 0;
   text-align: center;
   letter-spacing: 2px;
+  font-size: 20px;
 }
-.heading span .fa {
+
+.heading-login span .fa {
   color: #d33;
 }
-.heading span a {
+
+.heading-login span a {
   color: #d33;
   font-weight: 600;
   text-decoration: none;

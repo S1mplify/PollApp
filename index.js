@@ -27,6 +27,13 @@
     $scope.idx = 0;
     $scope.ownerId = 1; //Testzwecke
     $scope.seeVotes = false;
+    $scope.buttons = [
+      { label: 'Aktive', state: false },
+      { label: 'Alt', state: false },
+      { label: 'Eigene', state: false }
+    ];
+
+    $scope.user = {};
 
     $scope.toggle = function () {
       $('.form').animate({
@@ -39,7 +46,9 @@
     };
 
     $scope.login = function () {
+
       if ( $scope.username == $scope.password ) {
+        $scope.loginInfo = "";
         $location.path( "/main" );
       } else {
         $scope.loginError = "Invalid user/pass.";
@@ -82,7 +91,7 @@
       }
     };
 
-    $scope.dashboard = function () {
+    $scope.umfrage = function () {
       /*session ok?*/
       if(true){
         $location.path( "/main" );
@@ -132,6 +141,10 @@
         scope: poll,
         size: 'md'
       });
+    };
+
+    $scope.aktiveFilter = function() {
+
     };
 
     $scope.demoData = [
@@ -205,6 +218,32 @@
             label: "2017/01/13",
             votes: 7,
             isVoted: false
+          }
+        ]
+      },
+      {
+        label: "Schwimmen gehen",
+        ownerId: 2,
+        state: "ended",
+        desc: "Dark and stormy. Lemon drop, lime rickey batida seagrams tinto de verano.",
+        type: "date",
+        totalParticipants: 8,
+        votedParticipants: 4,
+        topics: [
+          {
+            label: "2017/01/12",
+            votes: 3,
+            isVoted: false
+          },
+          {
+            label: "2017/01/13",
+            votes: 5,
+            isVoted: false
+          },
+          {
+              label: "2017/01/13",
+              votes: 7,
+              isVoted: false
           }
         ]
       }

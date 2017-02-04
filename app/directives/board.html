@@ -4,10 +4,8 @@
   <div class="row">
     <div class="sidebar">
       <ul class="nav nav-sidebar">
-        <li class="active">
-          <input type="button" value="Neu" class="btn pollfilter"/>
-          <input type="button" value="Alt" class="btn pollfilter"/>
-          <input type="button" value="Eigene" class="btn pollfilter"/>
+        <li ng-repeat="btn in buttons">
+          <input type="button" ng-class="btn.state" ng-click="activeFilter()" value="{{btn.label}}" class="btn pollfilter"/>
         </li>
         <li  ng-repeat="data in demoData track by $index">
           <a class="poll-items" ng-click="updateData($index)" >
@@ -21,7 +19,7 @@
       </ul>
     </div>
     <div class="main"  data-spy="scroll" data-target="#toc" >
-      <h1 class="page-header" id="overview">Dashboard</h1>
+      <h1 class="page-header" id="overview">Umfragen</h1>
       <div class="row placeholders">
         <div class="placeholder">
           <h4 class="heading" ng-bind="demoData[idx].label"></h4>
