@@ -7,9 +7,9 @@
       //$scope.active = true;
       $scope.poll = {};
       $scope.format = 'dd-MMMM-yyyy';
-      $scope.poll.types = ["Allgemein", "Datum"];
-      $scope.poll.answer = [""];
-      $scope.poll.dates = [{date:'01-05-2001'}, {date:'05-05-2014'}, {date:'10-11-2008'}];
+      $scope.poll.types = ['Allgemein', 'Datum'];
+      $scope.poll.answer = ['', ''];
+      $scope.poll.dates = [{date:''}, {date:''}];
 
       $scope.disabled = function(date, mode) {
           return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
@@ -31,27 +31,27 @@
           dt.opened = true;
           $scope.startOpened = !$scope.startOpened;
       };
-      //$scope.date = [""];
+      //$scope.date = [''];
 
       $scope.addNewAnswerPoll = function () {
-          $scope.poll.answer.push("")
+          $scope.poll.answer.push('')
       };
 
       $scope.addNewAnswerDate = function () {
-          $scope.poll.dates.push({date: "", opened: false});
-          //$scope.date.push("");
+          $scope.poll.dates.push({date: '', opened: false});
+          //$scope.date.push('');
       };
 
       $scope.changeType = function (typ) {
           $scope.poll.type = typ;
-          $scope.poll.answer = ["", ""];
+          $scope.poll.answer = ['', ''];
           $scope.poll.dates = [{date:''}, {date:''}];
-          if(typ == "Allgemein"){
+          if(typ == 'Allgemein'){
             $scope.active = true;
           } else{
             $scope.active = false;
           }
-          //$scope.date.push("");
+          //$scope.date.push('');
       };
 
       $scope.cancel = function () {

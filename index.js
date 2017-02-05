@@ -23,7 +23,7 @@
   poll.controller('pollCtrl', ['$scope', '$location', '$uibModal',
     function ($scope, $location, $uibModal) {
 
-    $scope.loginInfo = "";
+    $scope.loginInfo = '';
     $scope.idx = 0;
     $scope.ownerId = 1; //Testzwecke
     $scope.seeVotes = false;
@@ -39,97 +39,97 @@
 
     $scope.toggle = function () {
       $('.form').animate({
-        height: "toggle",
+        height: 'toggle',
         'padding-top': 'toggle',
         'padding-bottom': 'toggle',
-        opacity: "toggle"
-      }, "slow");
-      $scope.loginInfo = "";
+        opacity: 'toggle'
+      }, 'slow');
+      $scope.loginInfo = '';
     };
 
     $scope.login = function () {
 
       if ( $scope.username == $scope.password ) {
-        $scope.loginInfo = "";
-        $location.path( "/main" );
+        $scope.loginInfo = '';
+        $location.path( '/main' );
       } else {
-        $scope.loginError = "Invalid user/pass.";
-        $location.path( "/" );
+        $scope.loginError = 'Invalid user/pass.';
+        $location.path( '/' );
       }
     };
 
     $scope.register = function () {
       $scope.toggle();
-      $scope.loginInfo = "Sie wurden registriert!";
+      $scope.loginInfo = 'Sie wurden registriert!';
     };
 
     $scope.loginBack = function () {
-      $location.path( "/" );
+      $location.path( '/' );
     };
 
     $scope.logout = function () {
       /*destroy actual Login*/
-      $location.path( "/" );
+      $location.path( '/' );
     };
 
     $scope.requestPassword = function () {
       /*session ok?*/
       if(true){
-        $location.path( "/pass" );
+        $location.path( '/pass' );
       }else{
-        $location.path( "/" );
+        $location.path( '/' );
       }
     };
 
     $scope.getPass = function () {
       /*WENN ES EMAIL IN DER DB gibt Erfolg*/
       if(true){
-        $scope.loginInfo = "Es wurde eine Email verschickt, dort können sie Ihr Passwort zurücksetzen";
-        $location.path( "/" );
+        $scope.loginInfo = 'Es wurde eine Email verschickt, dort können sie Ihr Passwort zurücksetzen';
+        $location.path( '/' );
       }else{
-        $scope.loginInfo = "Es konnte kein Eintrag mit dieser E-Mailadresse gefundern werden! " +
-            "Versuchen sie es nocheinmal.";
-        $location.path( "/pass" );
+        $scope.loginInfo = 'Es konnte kein Eintrag mit dieser E-Mailadresse gefundern werden! ' +
+            'Versuchen sie es nocheinmal.';
+        $location.path( '/pass' );
       }
     };
 
     $scope.umfrage = function () {
       /*session ok?*/
       if(true){
-        $location.path( "/main" );
+        $location.path( '/main' );
       }else{
-        $location.path( "/" );
+        $location.path( '/' );
       }
     };
 
     $scope.settings = function () {
       if(true){
-        $location.path( "/settings" );
+        $location.path( '/settings' );
       }else{
-        $location.path( "/" );
+        $location.path( '/' );
       }
     };
 
     $scope.help = function () {
       if(true){
-        $location.path( "/help" );
+        $location.path( '/help' );
       }else{
-        $location.path( "/" );
+        $location.path( '/' );
       }
     };
 
     $scope.profile = function () {
       if(true){
-        $location.path( "/profile" );
+        $location.path( '/profile' );
       }else{
-        $location.path( "/" );
+        $location.path( '/' );
       }
     };
 
     $scope.openModal = function() {
       var modalInstance = $uibModal.open({
         animation: true,
-        templateUrl: "app/directives/modal/modal.html",
+        templateUrl: 'app/directives/modal/modal.html',
         controller: 'datepickerCtrl',
         size: 'md'
       });
@@ -138,7 +138,7 @@
     $scope.openModalEdit = function(poll) {
       var modalInstance = $uibModal.open({
         animation: true,
-        templateUrl: "app/directives/modal/modal.html",
+        templateUrl: 'app/directives/modal/modal.html',
         controller: 'datepickerCtrl',
         scope: poll,
         size: 'md'
@@ -155,99 +155,99 @@
 
     $scope.demoData = [
       {
-        label: "Welcher Treffpunkt?",
+        label: 'Welcher Treffpunkt?',
         ownerId: 1,
-        state: "finished",
-        desc: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-        type: "poll",
+        state: 'finished',
+        desc: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+        type: 'poll',
         totalParticipants: 10,
         votedParticipants: 7,
         topics: [
           {
-            label: "Stuttgart",
+            label: 'Stuttgart',
             votes: 4,
             isVoted: false
           },
           {
-            label: "Frankfurt",
+            label: 'Frankfurt',
             votes: 3,
             isVoted: false
           },
           {
-              label: "Berlin",
+              label: 'Berlin',
               votes: 2,
               isVoted: false
           },
           {
-              label: "München",
+              label: 'München',
               votes: 6,
               isVoted: true
           }
         ]
       },
       {
-        label: "Was ist euer Lieblingsessen?",
+        label: 'Was ist euer Lieblingsessen?',
         ownerId: 2,
-        state: "active",
-        desc: "Bacon ipsum dolor sit amet doner meatball jowl short ribs, chicken prosciutto salami frankfurter. Pig drumstick turducken short ribs, brisket meatloaf ham hock shankle andouille corned beef strip steak.",
-        type: "poll",
+        state: 'active',
+        desc: 'Bacon ipsum dolor sit amet doner meatball jowl short ribs, chicken prosciutto salami frankfurter. Pig drumstick turducken short ribs, brisket meatloaf ham hock shankle andouille corned beef strip steak.',
+        type: 'poll',
         totalParticipants: 20,
         votedParticipants: 17,
         topics: [
           {
-            label: "Spaghetti",
+            label: 'Spaghetti',
             votes: 12,
             isVoted: false
           },
           {
-            label: "Maultaschen",
+            label: 'Maultaschen',
             votes: 5,
             isVoted: false
           }
         ]
       },
       {
-        label: "Treffpunkt für Lasertack",
+        label: 'Treffpunkt für Lasertack',
         ownerId: 1,
-        state: "active",
-        desc: "Christian brothers jameson long island iced tea caju amigo glen elgin caipiroska dark and stormy. Lemon drop, lime rickey batida seagrams tinto de verano.",
-        type: "date",
+        state: 'active',
+        desc: 'Christian brothers jameson long island iced tea caju amigo glen elgin caipiroska dark and stormy. Lemon drop, lime rickey batida seagrams tinto de verano.',
+        type: 'date',
         totalParticipants: 22,
         votedParticipants: 16,
         topics: [
           {
-            label: new Date("2017-01-12 00:00:00"),
+            label: new Date('2017-01-12'),
             votes: 9,
             isVoted: false
           },
           {
-            label: new Date("2017-01-13 00:00:00"),
+            label: new Date('2017-01-13'),
             votes: 7,
             isVoted: false
           }
         ]
       },
       {
-        label: "Schwimmen gehen",
+        label: 'Schwimmen gehen',
         ownerId: 2,
-        state: "finished",
-        desc: "Dark and stormy. Lemon drop, lime rickey batida seagrams tinto de verano.",
-        type: "date",
+        state: 'finished',
+        desc: 'Dark and stormy. Lemon drop, lime rickey batida seagrams tinto de verano.',
+        type: 'date',
         totalParticipants: 8,
         votedParticipants: 4,
         topics: [
           {
-            label: new Date("2017-01-12 00:00:00"),
+            label: new Date('2017-01-12'),
             votes: 3,
             isVoted: false
           },
           {
-            label: new Date("2017-01-13 00:00:00"),
+            label: new Date('2017-01-13'),
             votes: 5,
             isVoted: false
           },
           {
-            label: new Date("2017-01-18 00:00:00"),
+            label: new Date('2017-01-18'),
             votes: 7,
             isVoted: false
           }
@@ -290,38 +290,45 @@
     $scope.showData = function (data) {
 
     };
-
- /*$scope.getPieChart = function (total, voted) {
+    /*
+    $scope.getPieChart = function () {
       var colors = [
-          "#FF0", "#F0F",
-          "#0FF", "#F00",
-          "#00F", "#0F0",
-          "#F6F", "#AF2",
-          "#F51", "#3BF",
-          "#93F", "#1F8",
-          "#FB1", "#E78",
-          "#4Fb", "#B2F",
-          "#CF5", "#F68"
+          '#FF0', '#F0F',
+          '#0FF', '#F00',
+          '#00F', '#0F0',
+          '#F6F', '#AF2',
+          '#F51', '#3BF',
+          '#93F', '#1F8',
+          '#FB1', '#E78',
+          '#4Fb', '#B2F',
+          '#CF5', '#F68'
       ];
 
       $scope.data = {
         labels: [
-          "Red",
-          "Blue"
+          'Red',
+          'Blue'
         ],
         datasets: [
           {
             data: [300, 50, 100],
             backgroundColor: [
-              "#FF6384",
-              "#36A2EB"
+              colors[0],
+              colors[1]
             ],
             hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB"
+              colors[0],
+              colors[1]
             ]
           }]
       };
-    };*/
+    };
+
+    $scope.PieChart = new Chart(ctx,{
+        type: 'pie',
+        data: $scope.getPieChart(),
+        options: options
+    });
+    */
   }]);
 }());
