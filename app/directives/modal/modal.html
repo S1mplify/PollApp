@@ -18,11 +18,9 @@
         <label class="label-desc">Poll Type:</label>
         <select name="pollTypes" id="pollTypes" ng-model="typ" class="form-control" ng-change="changeme()">
       <option ng-repeat="type in poll.types" value="{{type}}" >{{type}}</option>
-    </select>
+      </select>
       </p>
-      <!--<p class="pollrow">
-         Mehrfache Antworten zulassen? - Checkbox hinzufügen
-      </p>-->
+      <!-- multiple answer J/N -->
     </div>
     <div ng-if="typ == 'Datum'" class="cellrow">
       <p class="pollrow">
